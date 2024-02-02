@@ -144,6 +144,7 @@ h5 {
 }
 
 .logout-button:hover {
-    cursor: pointer;
-
+    background-color: #333; /* Change to the desired hover background color */
+    color: #fff; /* Change to the desired hover text color */
+    cursor: pointer; /* Change to the desired cursor style */
 }

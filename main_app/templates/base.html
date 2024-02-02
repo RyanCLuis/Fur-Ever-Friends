@@ -18,16 +18,16 @@
                 {% if user.is_authenticated %}
                     <ul class="left">
                         <li><a href="{% url 'home' %}" class="bold-text2">&nbsp;&nbsp;Home 🐶&nbsp;&nbsp;</a></li>
-                        <li>
-                            <form method="post" action="{% url 'logout' %}">
-                                {% csrf_token %}
-                                <button type="submit" style="border: none;background-color: rgb(127, 172, 110); color: rgb(175, 199, 205); font-size: 20px; margin-top: 23px; font-family:'Swiss 721 Rounded', sans-serif;" class="loggout-button">Logout</button>
-                            </form>
-                        </li>
                     </ul>
                     <!-- Hamburger menu icon on the right -->
                     <a href="/" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
+                        <li>
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" style="border: none;background-color: rgb(127, 172, 110); color: rgb(175, 199, 205); font-size: 20px; margin-top: 23px; font-family:'Swiss 721 Rounded', sans-serif;" class="logout-button">Logout</button>
+                            </form>
+                        </li>
                         <li><a href="{% url 'adopted_pet' %}"class="bold-text">&#10084;&#65039; Pets Adopted!</a></li>
                         <li><a href="{% url 'pets_create' %}" class="bold-text">Add Pet for Adoption</a></li>
                         <li><a href="{% url 'index' %}" class="bold-text">View Pets</a></li>
@@ -35,10 +35,10 @@
                 {% else %}
                     <ul class="left">
                         <li><a href="{% url 'home' %}" class="bold-text2">&nbsp;&nbsp;Home 🐶&nbsp;&nbsp;</a></li>
-                        <li><a href="{% url 'signup' %}" class="font-color2">Sign Up</a></li>
-                        <li><a href="{% url 'login' %}" class="font-color2">Log In</a></li>
                     </ul>
                     <ul class="right">
+                        <li><a href="{% url 'signup' %}" class="font-color2">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}" class="font-color2">Log In</a></li>
                         <li><a href="{% url 'adopted_pet' %}"class="bold-text">&#10084;&#65039; Pets Adopted!</a></li>
                         <li><a href="{% url 'index' %}" class="bold-text">View Pets</a></li>
                     </ul>
@@ -52,6 +52,12 @@
             <li><a href="{% url 'adopted_pet' %}"class="bold-text"> &#10084;&#65039; Pets Adopted!</a></li>
             <li><a href="{% url 'pets_create' %}" class="bold-text">Add Pet for Adoption</a></li>
             <li><a href="{% url 'index' %}" class="bold-text">View Pets</a></li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </li>
                 <li> Welcome {{ user.username}} </li>
             {% else %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
